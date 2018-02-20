@@ -15,10 +15,6 @@ class Continue(Exception):
     pass
 
 
-class Done(Exception):
-    pass
-
-
 def break_():
     raise Break()
 
@@ -123,6 +119,7 @@ class LoopBodyMapping(dict):
         if key in ('__module__', '__qualname__'):
             return
 
+        # The first stored variable in the class body is our loop variable.
         if self.variable is None:
             self.frame = sys._getframe(1)
             self.closure = _ctx.func.__closure__
