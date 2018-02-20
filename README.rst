@@ -6,7 +6,7 @@ C-Style For-Loops as Python Classes
 Basic Usage
 -----------
 
-:class:`loop.Loop` lets you write C-style loops in the bodies of Python classes.
+``Loop`` lets you write C-style loops in the bodies of Python classes.
 
 .. code-block:: python
 
@@ -58,7 +58,7 @@ break and continue the loop execution.
 Edge Case Handling
 ------------------
 
-:class:`Loop` correctly handle tricky edge cases.
+``Loop`` correctly handle tricky edge cases.
 
 Loop Condition Never True
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,7 +78,7 @@ If the loop condition is initially False, the loop body is never executed.
 Loops Inside Functions
 ~~~~~~~~~~~~~~~~~~~~~~
 
-:class:`Loop` bodies can refer to local variables of enclosing functions.
+``Loop`` bodies can refer to local variables of enclosing functions.
 
 .. code-block:: python
 
