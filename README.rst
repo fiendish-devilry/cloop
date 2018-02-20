@@ -29,7 +29,6 @@ break and continue the loop execution.
 
 .. code-block:: python
 
-   >>> from loop import Loop
    >>> class For(Loop):
    ...     x = 0; x < 5; ++x
    ...     if x == 2:
@@ -45,7 +44,6 @@ break and continue the loop execution.
 
 .. code-block:: python
 
-   >>> from loop import Loop
    >>> class For(Loop):
    ...     x = 0; x < 5; ++x
    ...     if x == 2:
@@ -57,12 +55,39 @@ break and continue the loop execution.
    Body: 1
    Breaking on 2
 
-Edge Cases
-----------
+Edge Case Handling
+------------------
 
-:class:`loop.Loop` correctly handles many tricky edge cases.
+:class:`Loop` correctly handle tricky edge cases.
 
 Loop Condition Never True
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-pass
+If the loop condition is initially False, the loop body is never executed.
+
+.. code-block:: python
+
+   >>> iters = []
+   >>> class For(Loop):
+   ...     x = 0; x > 100; ++x
+   ...     iters.append(x)
+   ...
+   >>> iters
+   []
+
+Loops Inside Functions
+~~~~~~~~~~~~~~~~~~~~~~
+
+:class:`Loop` bodies can refer to local variables of enclosing functions.
+
+.. code-block:: python
+
+>>> def func():
+...     iters = []
+...     class For(Loop):
+...         x = 0; x < 5; ++x
+...         iters.append(x)
+...     return iters
+...
+>>> func()
+[0, 1, 2, 4, 4]
