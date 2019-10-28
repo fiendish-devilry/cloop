@@ -41,9 +41,9 @@ def my_build_class(func, *args, **kwargs):
 
 builtins.__build_class__ = my_build_class
 
-
+#create class
 class LoopVariable:
-
+#define new function
     def __init__(self, name, value):
         self.name = name
         self.value = value
